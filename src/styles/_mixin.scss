@@ -1,0 +1,12 @@
+@mixin heading($spacing: 3px, $weight: 300, $case: uppercase){
+    letter-spacing: $spacing;
+    font-weight: $weight;
+    text-transform: $case;
+}
+
+@mixin grid ($col: 1fr, $gap: 1 rem, $row: unset) {
+    display: grid;
+    grid-column: $col;
+    grid-row: $row;
+    gap: $gap;
+}
