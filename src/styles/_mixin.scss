@@ -4,9 +4,16 @@
     text-transform: $case;
 }
 
-@mixin grid ($col: 1fr, $gap: 1 rem, $row: unset) {
+@mixin grid($col: 1fr, $gap: 1rem) {
     display: grid;
-    grid-column: $col;
-    grid-row: $row;
+    grid-template-columns: $col;
+    gap: $gap;
+}
+
+@mixin flex($dir: row, $justifyContent: center, $alignItems: center, $gap: 1rem) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
     gap: $gap;
 }

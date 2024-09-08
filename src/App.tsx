@@ -11,6 +11,21 @@ const App = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/product" element={<Dashboard />} />
+            <Route path="/admin/customer" element={<Dashboard />} />
+            <Route path="/admin/transaction" element={<Dashboard />} />
+
+            {/* Charts */}
+
+            <Route path="/admin/chart/bar" element={<Dashboard />} />
+            <Route path="/admin/chart/pie" element={<Dashboard />} />
+            <Route path="/admin/chart/line" element={<Dashboard />} />
+
+            {/* Apps */}
+
+            <Route path="/admin/app/stopwatch" element={<Dashboard />} />
+            <Route path="/admin/app/coupon" element={<Dashboard />} />
+            <Route path="/admin/app/toss" element={<Dashboard />} />
           </Routes>
         </Suspense>
       </Router>
