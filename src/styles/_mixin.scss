@@ -25,3 +25,8 @@
     width: $w;
     outline: none;
 }
+
+@mixin square ($s: 1rem){
+    width: $s;
+    height: $s;
+}
