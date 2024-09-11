@@ -2,7 +2,10 @@ import AdminSidebar from "../components/AdminSidebar";
 import { BsSearch } from "react-icons/bs";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
 import { FaRegBell } from "react-icons/fa";
-import userImage from  "../assets/userpic.png"
+import userImage from "../assets/userpic.png";
+import data from "../assets/CategoryData.json";
+import { BarChart } from "../components/Charts";
+// import BarCharts from "./Charts/BarChart";
 
 const Dashboard = () => {
   return (
@@ -48,6 +51,34 @@ const Dashboard = () => {
             color="rgb(0,115,255)"
           />
         </section>
+
+        <section className="graph-container">
+          <div className="revenue-chart">
+            <h2>Revenue & Transaction</h2>
+            <BarChart
+              data_2={[300, 144, 433, 655, 237, 755, 190]}
+              data_1={[200, 444, 343, 556, 778, 455, 990]}
+              title_1="Revenue"
+              title_2="Transaction"
+              bgColor_1="rgb(0,115,255)"
+              bgColor_2="rgba(53,162,235,0.8)"
+            />
+          </div>
+
+          <div className="dashboard-categories">
+            <h2>Inventory</h2>
+            <div>
+              {data.categories.map((i) => (
+                <CategoryItem
+                  key={i.heading}
+                  heading={i.heading}
+                  value={i.value}
+                  color={`hsl(${i.value * 4},${i.value}%,50%)`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
@@ -69,7 +100,7 @@ const WidgetItem = ({
   color,
 }: WidgetItemProps) => (
   <article className="widget">
-    <div className="widgetInfo">
+    <div className="widget-info">
       <p>{heading}</p>
 
       {amount ? `$${value}` : value}
@@ -102,6 +133,27 @@ const WidgetItem = ({
       </span>
     </div>
   </article>
+);
+
+interface categoryItemProps {
+  heading: string;
+  value: number;
+  color: string;
+}
+
+const CategoryItem = ({ heading, value, color }: categoryItemProps) => (
+  <div className="category-item">
+    <h5>{heading}</h5>
+    <div>
+      <div
+        style={{
+          backgroundColor: color,
+          width: `${value}%`,
+        }}
+      ></div>
+    </div>
+    <span>{value}%</span>
+  </div>
 );
 
 export default Dashboard;
