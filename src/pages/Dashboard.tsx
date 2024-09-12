@@ -4,8 +4,7 @@ import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
 import { FaRegBell } from "react-icons/fa";
 import userImage from "../assets/userpic.png";
 import data from "../assets/CategoryData.json";
-import { BarChart } from "../components/Charts";
-// import BarCharts from "./Charts/BarChart";
+import { BarChart, DoughnutChart } from "../components/Charts";
 
 const Dashboard = () => {
   return (
@@ -76,7 +75,17 @@ const Dashboard = () => {
                   color={`hsl(${i.value * 4},${i.value}%,50%)`}
                 />
               ))}
-            </div>
+            </div> 
+          </div>
+        </section>
+        <section>
+          <div>
+            <DoughnutChart
+              labels={["Female", "Male"]}
+              data={[12, 19]}
+              backgroundColor={["hsl(340,82%,56%)", "rgba(53,162,235,0.8)"]}
+              cutout={90}
+            />
           </div>
         </section>
       </main>
