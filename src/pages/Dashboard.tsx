@@ -5,6 +5,7 @@ import { FaRegBell } from "react-icons/fa";
 import userImage from "../assets/userpic.png";
 import data from "../assets/CategoryData.json";
 import { BarChart, DoughnutChart } from "../components/Charts";
+import { BiMaleFemale } from "react-icons/bi";
 
 const Dashboard = () => {
   return (
@@ -78,14 +79,16 @@ const Dashboard = () => {
             </div> 
           </div>
         </section>
-        <section>
-          <div>
+        <section className="transaction-container">
+          <div className="gender-chart">
+            <h2>Gender Ratio</h2>
             <DoughnutChart
               labels={["Female", "Male"]}
               data={[12, 19]}
               backgroundColor={["hsl(340,82%,56%)", "rgba(53,162,235,0.8)"]}
               cutout={90}
             />
+            <p><BiMaleFemale /></p>
           </div>
         </section>
       </main>
