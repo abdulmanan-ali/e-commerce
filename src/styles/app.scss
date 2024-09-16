@@ -1,5 +1,6 @@
 @import "mixin";
 @import "dashboard";
+@import "products";
 
 :root {
     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -74,4 +75,43 @@ li {
             }
         }
     }
+}
+
+.table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        vertical-align: middle;
+        word-wrap: break-word; 
+    }
+
+    th {
+        font-weight: bold;
+        color: #0000009e;
+        font-size: 1.1rem;
+        font-weight: 400;
+        padding: 20px;
+    }
+
+    tbody {
+        tr {
+
+            box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
+        }
+    }
+
+    td {
+        padding: 1rem;
+        max-width: 100px;
+    }
+    img {
+        @include square(50%)
+    }
+
 }

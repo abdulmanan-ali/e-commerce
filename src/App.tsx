@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader";
+import Products from "./pages/Products";
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 
@@ -11,7 +12,7 @@ const App = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin/product" element={<Dashboard />} />
+            <Route path="/admin/product" element={<Products />} />
             <Route path="/admin/customer" element={<Dashboard />} />
             <Route path="/admin/transaction" element={<Dashboard />} />
 

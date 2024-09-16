@@ -165,5 +165,15 @@
                 color: rgba(0, 0, 0, 0.634);
             }
         }
+
+        .transaction-box {
+            width: 100%;
+            overflow-x: auto;
+            padding: 1rem;
+            >h2 {
+                margin: 1rem 0 1rem 0;
+                @include heading;
+            }
+        }
     }
 }

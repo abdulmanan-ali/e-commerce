@@ -3,9 +3,10 @@ import { BsSearch } from "react-icons/bs";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
 import { FaRegBell } from "react-icons/fa";
 import userImage from "../assets/userpic.png";
-import data from "../assets/CategoryData.json";
+import data from "../assets/Data.json";
 import { BarChart, DoughnutChart } from "../components/Charts";
 import { BiMaleFemale } from "react-icons/bi";
+import Table from "../components/DashboardTable"
 
 const Dashboard = () => {
   return (
@@ -56,8 +57,8 @@ const Dashboard = () => {
           <div className="revenue-chart">
             <h2>Revenue & Transaction</h2>
             <BarChart
-              data_2={[300, 144, 433, 655, 237, 755, 190]}
               data_1={[200, 444, 343, 556, 778, 455, 990]}
+              data_2={[300, 144, 433, 655, 237, 755, 190]}
               title_1="Revenue"
               title_2="Transaction"
               bgColor_1="rgb(0,115,255)"
@@ -90,6 +91,7 @@ const Dashboard = () => {
             />
             <p><BiMaleFemale /></p>
           </div>
+          <Table data= {data.transaction} />
         </section>
       </main>
     </div>
