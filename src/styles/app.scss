@@ -95,7 +95,7 @@ li {
         font-weight: bold;
         color: #0000009e;
         font-size: 1.1rem;
-        font-weight: 400;
+        font-weight: 800;
         padding: 20px;
     }
 
@@ -112,6 +112,25 @@ li {
     }
     img {
         @include square(50%)
+    }
+
+}
+
+.show-pagination {
+    padding: 2rem;
+    @include flex;
+    >button {
+        padding: 0.5rem 1rem;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        background-color: rgba(0, 115, 255);
+        color: white;
+        cursor: pointer;
+        &:disabled {
+            background-color: rgb(165, 165, 165);
+            cursor: not-allowed;
+        }
     }
 
 }
