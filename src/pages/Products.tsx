@@ -100,16 +100,24 @@ const Products = () => {
   const [data] = useState<DataType[]>(arr);
 
   const Table = useCallback(
-    TableHOC<DataType>(columns, data, "dashboard-product-box", "Products", true),
+    TableHOC<DataType>(
+      columns,
+      data,
+      "dashboard-product-box",
+      "Products",
+      true
+    ),
     []
   );
 
   return (
     <div className="admin-container">
       <AdminSidebar />
-      <main><Table /></main>
+      <main>
+        <Table />
+      </main>
       <Link className="create-product-button" to={"/admin/product/new"}>
-      <FaPlus />
+        <FaPlus />
       </Link>
     </div>
   );

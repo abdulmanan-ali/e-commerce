@@ -6,15 +6,39 @@
     margin: 1rem 1rem 0 0;
 
 }
+
+.table {
+
+    button {
+        background-color: white;
+        color: red;
+        border: none;
+        cursor: pointer;
+        padding-left: 1.5rem;
+    }
+    a{
+        color: white;
+        padding: 0.4rem;
+        background-color: rgb(88, 159, 245);
+        border-radius: 10px;
+        font-size: small;
+    }
+    img{
+        @include square (0.3rem);
+
+    }
+}
+
 .create-product-button {
     position: fixed;
     right: 2rem;
-    top: 2rem;
+    top: 2rem;  
     @include square(2.5rem);
     @include flex(row, center, center, 0);
     border-radius: 50%;
     background-color: rgb(201, 9, 9);
     color: white;
+
     &:hover {
         opacity: 0.8;
     }
