@@ -1,10 +1,10 @@
 import { useState, ChangeEvent } from "react";
 import AdminSidebar from "../../components/AdminSidebar";
 
-const NewProduct = () => {
-  const [name, setName] = useState<string>("");
-  const [price, setPrice] = useState<number>();
-  const [stock, setStock] = useState<number>();
+const ProductManagement = () => {
+  const [name, setName] = useState<string>("Puma Shoes");
+  const [price, setPrice] = useState<number>(2000);
+  const [stock, setStock] = useState<number>(10);
   const [photo, setPhoto] = useState<string>();
 
   const changeImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,6 +24,17 @@ const NewProduct = () => {
     <div className="admin-container">
       <AdminSidebar />
       <div className="product-management">
+        <section>
+          {stock > 0 ? (
+            <span className="green"> {stock} Available</span>
+          ) : (
+            <span className="red">Not Available</span>
+          )}
+          <strong>ID - jjdaljfkj</strong>
+          <img src={photo} alt="product" />
+          <p>{name}</p>
+          <h3>${price}</h3>
+        </section>
         <article>
           <form action="">
             <h2>New Product</h2>
@@ -62,7 +73,7 @@ const NewProduct = () => {
               <input required type="file" onChange={changeImageHandler} />
             </div>
             {photo && <img src={photo} alt="New Image" />}
-            <button type="submit">Submit</button>
+            <button type="submit">Update</button>
           </form>
         </article>
       </div>
@@ -70,4 +81,4 @@ const NewProduct = () => {
   );
 };
 
-export default NewProduct;
+export default ProductManagement;

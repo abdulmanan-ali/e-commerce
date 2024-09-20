@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loader from "./components/Loader";
+import ProductManagement from "./pages/Management/ProductManagement";
+import TransactionManagement from "./pages/Management/TransactionManagement";
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Products = lazy(() => import("./pages/Products"));
@@ -34,8 +36,9 @@ const App = () => {
             {/* Management */}
 
             <Route path="/admin/product/new" element={<NewProduct />} />
-            <Route path="/admin/product/:id" element={<Dashboard />} />
-            
+            <Route path="/admin/product/:id" element={<ProductManagement />} />
+            <Route path="/admin/transaction/:id" element={<TransactionManagement />} />
+
           </Routes>
         </Suspense>
       </Router>
