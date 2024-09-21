@@ -54,6 +54,7 @@
         max-width: 400px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216);
 
+
         >form {
             @include flex(column, center, center, 1rem);
             letter-spacing: 2px;
@@ -85,7 +86,7 @@
             }
         }
 
-      img {
+        img {
             @include square(5rem);
             object-fit: cover;
             border-radius: 5px;
@@ -105,7 +106,7 @@
 
     section {
         height: 85vh;
-        background-color: whtie;
+        background-color: white;
         border-radius: 5px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216);
         max-width: 500px;
@@ -113,24 +114,48 @@
         @include flex(column, unset, unset, 1rem);
         overflow-y: auto;
         position: relative;
-        padding: 2rem ;
+        padding: 2rem;
 
-        > span {
+        .transaction-product-card {
+            @include flex(row, unset, center, 1rem);          
+            > img {
+              @include square(4rem);
+              object-fit: cover;
+              border-radius: 5px;
+            }
+            > span {
+              margin-left: auto;
+              text-align: center;
+            }
+          }
+
+        >h2 {
+            @include heading(2px);
+            text-align: center;
+        }
+
+        >span {
             position: absolute;
             top: 2rem;
             right: 2rem
         }
 
-        > strong {
+        >strong {
             font-weight: 300;
             margin-top: 3rem;
+        }
+        .transaction-img {
+            @include square(5rem);
+            object-fit: cover;
+            vertical-align: bottom;
         }
 
         >img {
             @include square(100%);
             object-fit: cover;
         }
-        >p{
+
+        >p {
             letter-spacing: 2px;
             text-transform: uppercase;
             text-align: center;
@@ -141,4 +166,40 @@
             font-size: 2rem;
         }
     }
+
+    .shipping-info-card {
+        >h1 {
+            text-align: center;
+            @include heading(2px);
+        }
+
+        >h5 {
+            margin: 2rem 0 0 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        >p {
+            margin: 0.5rem;
+        }
+
+        >button {
+            margin: 2rem 0;
+            padding: 0.4rem;
+            padding-left: 10px;
+            border: none;
+            background-color: rgb(5, 107, 224);
+            color: white;
+            width: 80%;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            margin-left: 2.4rem;
+            cursor: pointer;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+ 
 }

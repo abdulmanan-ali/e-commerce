@@ -103,6 +103,8 @@ export const BarChart = ({
   return <Bar width={horizontal ? "200%" : ""} options={options} data={data} />;
 };
 
+// ____________DoughnutChart______________
+
 interface DoughnutChartProps {
   labels: Array<string>;
   backgroundColor: Array<string>;
@@ -145,5 +147,5 @@ export const DoughnutChart = ({
     },
     cutout,
   };
-  return <Doughnut data= {doughnutData} options={doughnutOption}   />
+  return <Doughnut data={doughnutData} options={doughnutOption} />;
 };
