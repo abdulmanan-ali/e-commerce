@@ -13,7 +13,7 @@ import {
   LineElement,
   Filler,
 } from "chart.js";
-import { Bar, Doughnut } from "react-chartjs-2";
+import { Bar, Doughnut, Pie, Line } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -148,4 +148,104 @@ export const DoughnutChart = ({
     cutout,
   };
   return <Doughnut data={doughnutData} options={doughnutOption} />;
+};
+
+// ____________PieChart______________
+
+interface PieChartProps {
+  labels: Array<string>;
+  data: Array<number>;
+  backgroundColor: Array<string>;
+  offset?: Array<number>;
+}
+
+export const PieChart = ({
+  labels,
+  data,
+  backgroundColor,
+  offset,
+}: PieChartProps) => {
+  const pieChartData: ChartData<"pie", number[], string> = {
+    labels,
+    datasets: [
+      {
+        data,
+        borderWidth: 0,
+        backgroundColor,
+        offset,
+      },
+    ],
+  };
+
+  const pieChartOption: ChartOptions<"pie"> = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: "bottom",
+        labels: {
+          padding: 40,
+        },
+      },
+    },
+  };
+  return <Pie data={pieChartData} options={pieChartOption} />;
+};
+
+// ____________LineChart______________
+
+interface LineChartProps {
+  data: number[];
+  label: string;
+  backgroundColor: string;
+  borderColor: string;
+  labels?: string[];
+}
+
+export const LineChart = ({
+  data,
+  label,
+  backgroundColor,
+  borderColor,
+  labels = months,
+}: LineChartProps) => {
+  const options: ChartOptions<"line"> = {
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      title: {
+        display: false,
+      },
+    },
+
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+      },
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+    },
+  };
+
+  const lineChartData: ChartData<"line", number[], string> = {
+    labels,
+    datasets: [
+      {
+        fill: true,
+        label,
+        data,
+        backgroundColor,
+        borderColor,
+      },
+    ],
+  };
+
+  return <Line options={options} data={lineChartData} />;
 };

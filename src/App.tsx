@@ -9,6 +9,13 @@ const Products = lazy(() => import("./pages/Products"));
 const Customer = lazy(() => import("./pages/Customer"));
 const Transaction = lazy(() => import("./pages/Transaction"));
 const NewProduct = lazy(() => import("./pages/Management/NewProduct"));
+const BarChart = lazy(() => import("./pages/Charts/BarCharts"));
+const PieChart = lazy(() => import("./pages/Charts/PieChart"));
+const LineChart = lazy(() => import("./pages/Charts/LineChart"));
+const Stopwatch = lazy(() => import("./pages/Apps/Stopwatch"));
+const Coupon = lazy(() => import("./pages/Apps/Coupon"));
+const Toss = lazy(() => import("./pages/Apps/Toss"));
+
 
 const App = () => {
   return (
@@ -17,21 +24,20 @@ const App = () => {
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/admin/dashboard" element={<Dashboard />} />
-            <Route path="/admin/product" element={<Products />} />
+            <Route path="/admin/product" element={<Products />} />  
             <Route path="/admin/customer" element={<Customer />} />
             <Route path="/admin/transaction" element={<Transaction />} />
 
             {/* Charts */}
 
-            <Route path="/admin/chart/bar" element={<Dashboard />} />
-            <Route path="/admin/chart/pie" element={<Dashboard />} />
-            <Route path="/admin/chart/line" element={<Dashboard />} />
+            <Route path="/admin/chart/bar" element={<BarChart />} />
+            <Route path="/admin/chart/pie" element={<PieChart />} />
+            <Route path="/admin/chart/line" element={<LineChart />} />
 
             {/* Apps */}
-
-            <Route path="/admin/app/stopwatch" element={<Dashboard />} />
-            <Route path="/admin/app/coupon" element={<Dashboard />} />
-            <Route path="/admin/app/toss" element={<Dashboard />} />
+            <Route path="/admin/app/stopwatch" element={<Stopwatch />} />
+          <Route path="/admin/app/coupon" element={<Coupon />} />
+          <Route path="/admin/app/toss" element={<Toss />} />
 
             {/* Management */}
 

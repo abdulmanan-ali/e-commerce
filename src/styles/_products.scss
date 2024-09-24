@@ -54,7 +54,6 @@
         max-width: 400px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.216);
 
-
         >form {
             @include flex(column, center, center, 1rem);
             letter-spacing: 2px;
@@ -80,7 +79,10 @@
                 }
 
                 >input {
-                    @include inputStyle(100%, 0.8rem, unset, 1px solid rgba(13, 13, 13, 0.196));
+                    @include inputStyle(100%,
+                        0.8rem,
+                        unset,
+                        1px solid rgba(13, 13, 13, 0.196));
                     border-radius: 5px;
                 }
             }
@@ -117,17 +119,19 @@
         padding: 2rem;
 
         .transaction-product-card {
-            @include flex(row, unset, center, 1rem);          
-            > img {
-              @include square(4rem);
-              object-fit: cover;
-              border-radius: 5px;
+            @include flex(row, unset, center, 1rem);
+
+            >img {
+                @include square(4rem);
+                object-fit: cover;
+                border-radius: 5px;
             }
-            > span {
-              margin-left: auto;
-              text-align: center;
+
+            >span {
+                margin-left: auto;
+                text-align: center;
             }
-          }
+        }
 
         >h2 {
             @include heading(2px);
@@ -137,13 +141,14 @@
         >span {
             position: absolute;
             top: 2rem;
-            right: 2rem
+            right: 2rem;
         }
 
         >strong {
             font-weight: 300;
             margin-top: 3rem;
         }
+
         .transaction-img {
             @include square(5rem);
             object-fit: cover;
@@ -195,11 +200,10 @@
             font-size: 1.1rem;
             margin-left: 2.4rem;
             cursor: pointer;
+
             &:hover {
                 opacity: 0.8;
             }
         }
     }
-
- 
 }
