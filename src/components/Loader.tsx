@@ -1,9 +1,12 @@
+import catAnimationData from "../assets/loader.json";
+import LottieLoader from 'react-lottie-loader';
 
-
-const Loader = () => {
+function App() {
   return (
-    <div>Loading...</div>
-  )
+    <div className="loader">
+      <LottieLoader animationData={catAnimationData} />
+    </div>
+  );
 }
 
-export default Loader
+export default App;

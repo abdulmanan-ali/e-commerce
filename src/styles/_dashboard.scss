@@ -7,6 +7,11 @@
         padding: 0 1rem;
         border-bottom: 1px solid rgba(0, 0, 0, 0.37);
 
+        @media screen and (width<=1100px) {
+            position: relative;
+            left: 4rem;
+        }
+
         >input {
             margin-right: auto;
             @include inputStyle(100%, 1rem 0);
@@ -152,7 +157,7 @@
             max-width: 20rem;
             padding: 1rem;
             position: relative;
-            
+
             >h2 {
                 @include heading();
                 text-align: center;
@@ -170,6 +175,7 @@
             width: 100%;
             overflow-x: auto;
             padding: 1rem;
+
             >h2 {
                 margin: 1rem 0 1rem 0;
                 @include heading;

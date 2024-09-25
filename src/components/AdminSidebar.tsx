@@ -15,16 +15,70 @@ import {
   RiDashboardFill,
   RiShoppingBag3Fill,
 } from "react-icons/ri";
+import { useEffect, useState } from "react";
+import { HiMenuAlt4 } from "react-icons/hi";
 
 const AdminSidebar = () => {
   const location = useLocation();
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [phoneActive, setPhoneActive] = useState<boolean>(
+    window.innerWidth < 1100
+  );
+
+  const resizeHandler = () => {
+    setPhoneActive(window.innerWidth < 1100);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, []);
+
   return (
     <>
-      <aside>
+      {phoneActive && (
+        <button
+          id="hamburger"
+          // onClick={? () => setShowModal(true):() =>  setShowModal(false)}
+          onClick={() => setShowModal((prev) => !prev)}
+          style={
+            showModal
+              ? { position: "fixed", left: "16rem", transition: "all 0.5s" }
+              : {}
+          }
+        >
+          <HiMenuAlt4 />
+        </button>
+      )}
+
+      <aside
+        style={
+          phoneActive
+            ? {
+                width: "20rem",
+                height: "100vh",
+                position: "fixed",
+                top: 0,
+                left: showModal ? "0" : "-20rem",
+                transition: "all 0.5s",
+                zIndex: "1",
+              }
+            : {}
+        }
+      >
         <h2>Logo.</h2>
         <DivOne location={location} />
         <DivTwo location={location} />
         <DivThree location={location} />
+
+        {phoneActive && (
+          <button id="close-sidebar" onClick={() => setShowModal(false)}>
+            Close
+          </button>
+        )}
       </aside>
     </>
   );
